@@ -7,8 +7,10 @@ const User = db.Users;
 // main work
 const addUser = async (req, res) => {
     let input_data = {
-        label: req.body.label,
-        info: req.body.info,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password,
      }
      // using the builtin 'create' function on User Model
      const user = await User.create(input_data)
