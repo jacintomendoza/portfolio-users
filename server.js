@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 1234
+const port = process.env.PORT || 3000
 
 // Needed for access from local host
 const cors = require('cors')
@@ -23,3 +23,8 @@ app.listen(port, () => {
 
 // Pushing to heroku: ///////////////////
 // git push heroku main 
+
+// RESTART HEROKU
+// $ git commit -m "Heroku Exec" --allow-empty
+// $ git push heroku master
+// $ git reset HEAD^
