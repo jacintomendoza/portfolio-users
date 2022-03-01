@@ -15,8 +15,13 @@ const addUser = async (req, res) => {
      // using the builtin 'create' function on User Model
      const user = await User.create(input_data)
 
-     // send a 200 response with the created entry
-     res.status(200).send(user)
+     if (user) {
+         // send a 200 response with the created entry
+        res.status(200).send(user)
+     } else {
+         res.status(500).send("server error")
+     }
+     
 }
 
 const getAllUsers = async (req, res) => {

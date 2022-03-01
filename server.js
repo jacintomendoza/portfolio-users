@@ -1,13 +1,12 @@
+// Initalization
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const port = process.env.PORT || 3000
 
-// Needed for access from local host
-const cors = require('cors')
-app.use(cors())
-
 // middlewares
 app.use(express.json())
+app.use(cors()) // Needed for access from local host
 
 //routers
 const userRouter = require('./routes/userRouter.js')

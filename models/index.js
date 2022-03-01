@@ -38,7 +38,7 @@ sequelize.authenticate()
         console.log('unable to connect to Postgres DB' + e)
     })
 
-console.log(sequelize)
+// console.log(sequelize)
 
 
 // create a db object to work with the sequelize table
