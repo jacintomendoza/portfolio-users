@@ -1,5 +1,5 @@
 // require the db configuration from the dbConfig file
-const dbConfig = require('../config/dbConfig.js')
+const dbConfig = require('../config/dbConfig')
 
 // require the sequelize Constructor and Datatypes from sequelize module
 const { Sequelize, DataTypes } = require('sequelize')
