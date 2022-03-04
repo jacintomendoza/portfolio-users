@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         }
+    },
+    {
+        // https://sebhastian.com/sequelize-relation-does-not-exist/
+        freezeTableName: true,
     });
 
     return User;

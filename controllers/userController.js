@@ -12,6 +12,7 @@ const addUser = async (req, res) => {
         email: req.body.email,
         password: req.body.password,
      }
+
      // using the builtin 'create' function on User Model
      const user = await User.create(input_data)
 

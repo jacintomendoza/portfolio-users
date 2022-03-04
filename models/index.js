@@ -7,18 +7,23 @@ const { Sequelize, DataTypes } = require('sequelize')
 // construct the sequelize object using the constructor
 let sequelize = null;
 
+
+// console.log("Database_URL: ", process.env.DATABASE_URL)
+// export $DATABASE_URL
+// echo $DATABASE_URL  
+
     if (process && process.env.DATABASE_URL) {
         sequelize = new Sequelize(process.env.DATABASE_URL, {
             dialectOptions: {
-            ssl: {
-                require: true,
-                rejectUnauthorized: false
+                ssl: {
+                    require: true,
+                    rejectUnauthorized: false
                 }
-              }
             }
+        }
         );
     } else {
-       sequelize = new Sequelize(
+        sequelize = new Sequelize(
         { // use imported configurations from dbConfig
             database: dbConfig.DB,
             username: dbConfig.USER,
@@ -47,8 +52,7 @@ const db = {}
 db.sequelize = sequelize
 
 // get the user model - our table name will be user as set in the following line
-
-db.Users = require('./userModel')(sequelize, DataTypes)
+db.Users = require('./userModel')(db.sequelize, DataTypes)
 
 // sync the db by running the model
 // force: false ensure that the table is not created again on every time the program runs
