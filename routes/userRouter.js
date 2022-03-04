@@ -7,6 +7,8 @@ const router = require('express').Router()
 // add a new user to the table
 router.post('/', userController.addUser)
 
+router.post('/login', userController.loginUser)
+
 // access all the user in the table
 router.get('/', userController.getAllUsers)
 

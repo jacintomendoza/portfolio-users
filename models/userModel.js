@@ -26,8 +26,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
         // https://sebhastian.com/sequelize-relation-does-not-exist/
+        // stop the auto-pluralization performed by Sequelize
         freezeTableName: true,
     });
-
     return User;
 };

@@ -12,26 +12,26 @@ let sequelize = null;
 // export $DATABASE_URL
 // echo $DATABASE_URL  
 
-    if (process && process.env.DATABASE_URL) {
-        sequelize = new Sequelize(process.env.DATABASE_URL, {
-            dialectOptions: {
-                ssl: {
-                    require: true,
-                    rejectUnauthorized: false
-                }
+if (process && process.env.DATABASE_URL) {
+    sequelize = new Sequelize(process.env.DATABASE_URL, {
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false
             }
         }
-        );
-    } else {
-        sequelize = new Sequelize(
-        { // use imported configurations from dbConfig
-            database: dbConfig.DB,
-            username: dbConfig.USER,
-            password: dbConfig.PASSWORD,
-            dialect: dbConfig.dialect,
-            host: dbConfig.HOST,
-        })
     }
+    );
+} else {
+    sequelize = new Sequelize(
+    { // use imported configurations from dbConfig
+        database: dbConfig.DB,
+        username: dbConfig.USER,
+        password: dbConfig.PASSWORD,
+        dialect: dbConfig.dialect,
+        host: dbConfig.HOST,
+    })
+}
 
 // authenticate will test the connection with DB and return a promise
 sequelize.authenticate()
@@ -42,7 +42,6 @@ sequelize.authenticate()
         console.log('unable to connect to Postgres DB' + e)
     })
 
-// console.log(sequelize)
 
 
 // create a db object to work with the sequelize table
